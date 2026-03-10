@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DREAM | Personal Page</title>
+<title>DREAM | Portfolio</title>
 
 <style>
 
@@ -12,19 +12,19 @@ margin:0;
 font-family:Arial, sans-serif;
 background:linear-gradient(120deg,#4facfe,#00f2fe);
 color:#333;
-display:flex;
-justify-content:center;
-align-items:center;
-height:100vh;
+}
+
+.container{
+max-width:900px;
+margin:auto;
+padding:30px;
+text-align:center;
 }
 
 .card{
 background:white;
 padding:40px;
 border-radius:15px;
-text-align:center;
-width:90%;
-max-width:500px;
 box-shadow:0 10px 30px rgba(0,0,0,0.2);
 }
 
@@ -40,9 +40,15 @@ h1{
 margin:10px 0;
 }
 
+#typing{
+color:#0077ff;
+font-weight:bold;
+margin-top:5px;
+}
+
 .about{
-color:#555;
 margin-top:10px;
+color:#555;
 }
 
 .motivation{
@@ -61,6 +67,18 @@ background:#f0f0f0;
 padding:8px 15px;
 margin:5px;
 border-radius:20px;
+}
+
+.projects{
+margin-top:40px;
+}
+
+.project{
+background:white;
+padding:20px;
+border-radius:10px;
+margin:10px;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
 }
 
 .buttons{
@@ -83,7 +101,7 @@ background:#0056c7;
 }
 
 footer{
-margin-top:20px;
+margin-top:30px;
 font-size:14px;
 color:#777;
 }
@@ -94,20 +112,25 @@ color:#777;
 
 <body>
 
+<div class="container">
+
 <div class="card">
 
 <img class="pfp" src="https://upload.wikimedia.org/wikipedia/en/9/9a/Dream_logo.svg">
 
 <h1>DREAM</h1>
 
+<div id="typing"></div>
+
 <p class="about">
-Hi! I'm DREAM, a student from Nepal.  
-I'm learning coding and web development step by step.  
-My dream is to become a software engineer in the future.
+Hi! I'm DREAM from Nepal 🇳🇵.  
+I'm a student learning coding and web development.  
+My goal is to become a software engineer and build useful things on the internet.
 </p>
 
 <p class="motivation">
-"Start small. Stay consistent. Build something amazing."
+"Success doesn't come from what you do occasionally.  
+It comes from what you do consistently."
 </p>
 
 <div class="skills">
@@ -121,11 +144,46 @@ My dream is to become a software engineer in the future.
 <a href="#">GitHub</a>
 </div>
 
+</div>
+
+<div class="projects">
+
+<h2>My Projects</h2>
+
+<div class="project">
+<h3>Personal Website</h3>
+<p>This website was built by me using HTML and CSS.</p>
+</div>
+
+<div class="project">
+<h3>Future Projects</h3>
+<p>I will add more projects here as I continue learning programming.</p>
+</div>
+
+</div>
+
 <footer>
-Built by DREAM 🚀
+Built with curiosity and motivation 🚀
 </footer>
 
 </div>
+
+<script>
+
+const text = "Future Software Engineer";
+let i = 0;
+
+function typing(){
+if(i < text.length){
+document.getElementById("typing").innerHTML += text.charAt(i);
+i++;
+setTimeout(typing,80);
+}
+}
+
+typing();
+
+</script>
 
 </body>
 </html>
