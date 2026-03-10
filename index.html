@@ -1,51 +1,54 @@
 <!DOCTYPE html>
-<<!DOCTYPE html>>
-<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DREAM | Matrix Portfolio</title>
+<title>DREAM | Personal Page</title>
 
 <style>
 
 body{
 margin:0;
-background:black;
-color:#00ff9c;
-font-family:Courier New, monospace;
-overflow:hidden;
+font-family:Arial, sans-serif;
+background:linear-gradient(120deg,#4facfe,#00f2fe);
+color:#333;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
 }
 
-canvas{
-position:fixed;
-top:0;
-left:0;
-z-index:-1;
-}
-
-.container{
-position:absolute;
-top:50%;
-left:50%;
-transform:translate(-50%,-50%);
-text-align:center;
-border:1px solid #00ff9c;
+.card{
+background:white;
 padding:40px;
-border-radius:10px;
-box-shadow:0 0 20px #00ff9c;
-background:rgba(0,0,0,0.7);
+border-radius:15px;
+text-align:center;
 width:90%;
-max-width:600px;
+max-width:500px;
+box-shadow:0 10px 30px rgba(0,0,0,0.2);
+}
+
+.pfp{
+width:120px;
+height:120px;
+border-radius:50%;
+background:#00ff88;
+padding:10px;
 }
 
 h1{
-font-size:40px;
+margin:10px 0;
 }
 
-#typing{
-margin:15px 0;
-font-size:20px;
+.about{
+color:#555;
+margin-top:10px;
+}
+
+.motivation{
+margin-top:20px;
+font-style:italic;
+color:#0077ff;
 }
 
 .skills{
@@ -54,15 +57,10 @@ margin-top:20px;
 
 .skill{
 display:inline-block;
-border:1px solid #00ff9c;
+background:#f0f0f0;
 padding:8px 15px;
 margin:5px;
-transition:0.3s;
-}
-
-.skill:hover{
-background:#00ff9c;
-color:black;
+border-radius:20px;
 }
 
 .buttons{
@@ -71,23 +69,23 @@ margin-top:25px;
 
 .buttons a{
 text-decoration:none;
-color:#00ff9c;
-border:1px solid #00ff9c;
+color:white;
+background:#0077ff;
 padding:10px 20px;
 margin:5px;
+border-radius:25px;
 display:inline-block;
 transition:0.3s;
 }
 
 .buttons a:hover{
-background:#00ff9c;
-color:black;
-box-shadow:0 0 15px #00ff9c;
+background:#0056c7;
 }
 
 footer{
 margin-top:20px;
-opacity:0.7;
+font-size:14px;
+color:#777;
 }
 
 </style>
@@ -96,98 +94,38 @@ opacity:0.7;
 
 <body>
 
-<canvas id="matrix"></canvas>
+<div class="card">
 
-<div class="container">
+<img class="pfp" src="https://upload.wikimedia.org/wikipedia/en/9/9a/Dream_logo.svg">
 
 <h1>DREAM</h1>
 
-<div id="typing"></div>
+<p class="about">
+Hi! I'm DREAM, a student from Nepal.  
+I'm learning coding and web development step by step.  
+My dream is to become a software engineer in the future.
+</p>
 
-<p>
-> Student from Nepal  <br>
-> DREAMMING TO BECAME Software Engineer 💻 <br>
-> Learning Coding right now it doesn't took too much time to create it
+<p class="motivation">
+"Start small. Stay consistent. Build something amazing."
 </p>
 
 <div class="skills">
-
-<div class="skill">HTML</div>
-<div class="skill">CSS</div>
-<div class="skill">JavaScript</div>
-<div class="skill">Web Dev</div>
-
+<span class="skill">Learning Coding</span>
+<span class="skill">Web Development</span>
+<span class="skill">Problem Solving</span>
 </div>
 
 <div class="buttons">
-
 <a href="#">Instagram</a>
 <a href="#">GitHub</a>
-<a href="#">Contact</a>
-
 </div>
 
 <footer>
-SYSTEM STATUS: CONNECTED
+Built by DREAM 🚀
 </footer>
 
 </div>
-
-<script>
-
-const text="INITIALIZING DREAM PORTFOLIO...";
-let i=0;
-
-function typing(){
-if(i<text.length){
-document.getElementById("typing").innerHTML+=text.charAt(i);
-i++;
-setTimeout(typing,70);
-}
-}
-
-typing();
-
-const canvas=document.getElementById("matrix");
-const ctx=canvas.getContext("2d");
-
-canvas.height=window.innerHeight;
-canvas.width=window.innerWidth;
-
-const letters="01";
-const fontSize=16;
-const columns=canvas.width/fontSize;
-
-const drops=[];
-
-for(let x=0;x<columns;x++)
-drops[x]=1;
-
-function draw(){
-ctx.fillStyle="rgba(0,0,0,0.05)";
-ctx.fillRect(0,0,canvas.width,canvas.height);
-
-ctx.fillStyle="#00ff9c";
-ctx.font=fontSize+"px monospace";
-
-for(let i=0;i<drops.length;i++){
-
-const text=letters.charAt(Math.floor(Math.random()*letters.length));
-
-ctx.fillText(text,i*fontSize,drops[i]*fontSize);
-
-if(drops[i]*fontSize>canvas.height && Math.random()>0.975)
-drops[i]=0;
-
-drops[i]++;
-
-}
-
-}
-
-setInterval(draw,35);
-
-</script>
 
 </body>
 </html>
